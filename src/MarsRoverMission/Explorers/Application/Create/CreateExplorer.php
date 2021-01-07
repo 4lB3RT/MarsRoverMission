@@ -1,7 +1,7 @@
 <?php
 namespace Housfy\MarsRoverMission\Explorers\Application\Create;
 
-class CreateExplorer
+final class CreateExplorer
 {
 }
 
