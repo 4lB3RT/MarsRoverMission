@@ -6,15 +6,15 @@ use Housfy\MarsRoverMission\Vehicles\Domain\Vehicle as DomainVehicle;
 
 final class Vehicle
 {
-    public static function create (String $id, String $name, array $coordinates, ?array $moves, array $commands) :DomainVehicle
+    public static function create (String $uuid, String $name, array $coordinates, ?array $moves, array $commands) :DomainVehicle
     {
-        return new DomainVehicle($id, $name, $coordinates, $moves, $commands);
+        return new DomainVehicle($uuid, $name, $coordinates, $moves, $commands);
     }
 
     public static function random () :DomainVehicle
     {
         $fake = Factory::create();
-        $id   = $fake->unique()->uuid;
+        $uuid   = $fake->unique()->uuid;
         $name = $fake->unique()->word;
         $coordinates = array (
             'x' => $fake->unique()->randomNumber,
@@ -25,7 +25,7 @@ final class Vehicle
             'command 2' => $fake->unique()->word
         );
         
-        return self::create($id, $name, $coordinates, null, $commands);
+        return self::create($uuid, $name, $coordinates, null, $commands);
     }
 }
 

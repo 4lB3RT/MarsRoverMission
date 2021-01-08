@@ -27,6 +27,11 @@ final class Explorer
         return $this->uuid;
     }
 
+    public function team(): ?Team
+    {
+        return $this->team;
+    }
+
     public function name(): string
     {
         return $this->name;

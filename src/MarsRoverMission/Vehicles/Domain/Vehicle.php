@@ -40,6 +40,11 @@ final class Vehicle
         return $this->team;
     }
 
+    public function planet(): ?Planet
+    {
+        return $this->planet;
+    }
+
     public function name() :string
     {
         return $this->name;

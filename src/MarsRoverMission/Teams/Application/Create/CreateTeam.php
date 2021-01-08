@@ -15,7 +15,7 @@ final class CreateTeam
 
     public function createTeam(String $id, String $name)
     {
-        
+    
     }
 }
 

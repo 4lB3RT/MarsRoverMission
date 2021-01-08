@@ -1,20 +1,19 @@
 <?php
 namespace Housfy\MarsRoverMission\Explorers\Infrastructure\Eloquent;
 
-use App\Models\Explorers\Explorer;
+use Housfy\MarsRoverMission\Explorers\Domain\Explorer;
 use Housfy\MarsRoverMission\Explorers\Domain\ExplorerRepository as DomainExplorerRepository;
+use Housfy\MarsRoverMission\Shared\Infrastructure\Eloquent\EloquentRepository;
 
-class ExplorerRepository implements DomainExplorerRepository
+class ExplorerRepository extends EloquentRepository implements DomainExplorerRepository
 {
-    private $model;
-
-    public function __construct(Explorer $explorer)
+    public function save(Explorer $explorer) 
     {
-        $this->model = $explorer;
-    }
+        $this->model->uuid    = $explorer->uuid();
+        $this->model->team_id = $explorer->team();
+        $this->model->name    = $explorer->name();
 
-    public function save()
-    {
+        $this->model->save();
     }
 }
 
